@@ -18,17 +18,11 @@ if ($_POST['auth']) {
         if ($db->connection_errno) {
             echo "error: " . $db->connection_errno;
         } else {
-            echo ("aaa");
-
-            //$query = $db->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass' ");
-            //INSERT INTO  
-            //VALUES ('[value-1]','[value-2]','[value-3]','[value-4]','[value-5]')
             $query = $db->query("INSERT INTO `users`(`login`, `pass`, `email`, `name`) 
             VALUES ('$new_login', '$new_pass', '$new_email', '$new_name')");          
         }
     }
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -38,25 +32,30 @@ if ($_POST['auth']) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 </head>
-
 <body>
+    <div class="container">
+    <div class="col-md-4 mx-auto">
     <h1>
         Регистрация
     </h1>
 
     <?if($_SESSION['auth'] != true){?>
-    <form method="post">
+    <form method="post" class="">
 
-        <input type="text" name="n_login" placeholder='логин' required >
-        <input type="password" name="n_pass" placeholder='пароль' required>
-        <input type="email" name="n_email" placeholder='email' required >
-        <input type="name" name="n_name" placeholder='имя' required >
-        <input type="submit" value="Зарегистрироваться" name="auth">
+        <input type="text" class="form-control" name="n_login" placeholder='логин' required >
+        <input type="password" class="form-control" name="n_pass" placeholder='пароль' required>
+        <input type="email" class="form-control" name="n_email" placeholder='email' required >
+        <input type="name" class="form-control" name="n_name" placeholder='имя' required >
+        <input type="submit" class="btn btn-success mx-auto" value="Зарегистрироваться" name="auth">
     </form>
     <?}?>
-
+    </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>
