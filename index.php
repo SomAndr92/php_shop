@@ -15,7 +15,7 @@ if ($_POST['auth']) {
         if ($db->connection_errno) {
             echo "error: " . $db->connection_errno;
         } else {
-
+            $pass=md5($pass);
             $query = $db->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass' ");
 
             $row = $query->fetch_assoc();
@@ -46,8 +46,8 @@ if ($_POST['auth']) {
 
     <form method="post">
 
-        <input type="text" name="login" required>
-        <input type="password" name="pass" required>
+        <input type="text" name="login" placeholder='логин' required>
+        <input type="password" name="pass" placeholder='пароль' required>
         <input type="submit" value="Войти" name="auth">
     </form>
 

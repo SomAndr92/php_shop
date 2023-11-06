@@ -18,8 +18,16 @@ if ($_POST['auth']) {
         if ($db->connection_errno) {
             echo "error: " . $db->connection_errno;
         } else {
+            $new_pass=md5($new_pass);
             $query = $db->query("INSERT INTO `users`(`login`, `pass`, `email`, `name`) 
-            VALUES ('$new_login', '$new_pass', '$new_email', '$new_name')");          
+            VALUES ('$new_login', '$new_pass', '$new_email', '$new_name')");  
+            //проверка на не совпадение логинов
+            if($query) 
+            {
+                header("location: /");
+            } else{
+                echo 'логин уже существует';
+            }      
         }
     }
 }
