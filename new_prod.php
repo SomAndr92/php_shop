@@ -9,7 +9,7 @@ session_start();
     <title>Document</title>
    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:#c7c7c7;">
     
 <form method="post" enctype="multipart/form-data">
 
@@ -33,9 +33,15 @@ if (!empty($name) and !empty($price) and !empty($characteristics) and !empty($de
     if ($db->connection_errno) {
         echo "error: " . $db->connection_errno;
     } else {
-        $uploaddir = ''
+        $uploaddir = 'files/';
+    $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
+    if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
+        echo 'ok';
+      } else {
+          echo "ne ok";
+      }
         $query = $db->query("INSERT INTO `товары`(`Наименование`, `Цена`, `Характеристики`, `Описание`, `Фото`) 
-        VALUES ('$name','$price','$characteristics','$description','[value-6]')");  
+        VALUES ('$name','$price','$characteristics','$description','$uploaddir')");  
         //проверка на не совпадение товаров
         if($query) 
         {

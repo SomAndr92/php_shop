@@ -1,3 +1,7 @@
+body{
+    background-color:rgba(52, 50, 50, 1) ;
+    
+    }
 .ok{
     background: green;
 }
@@ -10,4 +14,8 @@
 
 .tovar{
     max-width: 250px;
+}
+
+.fff{ 
+    text-align: center 
 }

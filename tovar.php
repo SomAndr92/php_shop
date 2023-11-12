@@ -16,7 +16,7 @@ session_start();
     <title>Document</title>
    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:#c7c7c7;">
     
 <div class="box">
 

@@ -42,22 +42,23 @@ if ($_POST['auth']) {
     <title>Регистрация</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="background-color:#c7c7c7;">
     <div class="container">
     <div class="col-md-4 mx-auto">
-    <h1>
-        Регистрация
-    </h1>
+    <div  class="row justify-content-md-center fs-2"> Регистрация</div>
+        
+    
 
     <?if($_SESSION['auth'] != true){?>
-    <form method="post" class="">
+    <form method="post" class="row justify-content-md-center gy-1">
 
         <input type="text" class="form-control" name="n_login" placeholder='логин' required >
         <input type="password" class="form-control" name="n_pass" placeholder='пароль' required>
         <input type="email" class="form-control" name="n_email" placeholder='email' required >
         <input type="name" class="form-control" name="n_name" placeholder='имя' required >
-        <input type="submit" class="btn btn-success mx-auto" value="Зарегистрироваться" name="auth">
+        <input type="submit" class="btn btn-primary col-md-auto" value="Зарегистрироваться" name="auth">
     </form>
     <?}?>
     </div>
