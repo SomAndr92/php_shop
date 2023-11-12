@@ -52,7 +52,9 @@ if ($_POST['exit']) {
             while($row=$query->fetch_assoc())
             {
             ?>
-            <div class="col-md-3">
+            <div class="col-md-3 gy-2">
+            <img src="<?=$row['фото']?>" alt="" class="jpgr">
+            <br>
                 <?=$row['Наименование']?>
                 <br>
             <a href ="user.php?id=<?=$row['id']?>" class="btn btn-primary">Подробнее</a>
