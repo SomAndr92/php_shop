@@ -1,6 +1,13 @@
 .ok{
     background: green;
 }
-.nope{
-    background: red;
+
+.box{
+    display: flex;
+    flex-wrap: nowrap;
+    
+}
+
+.tovar{
+    max-width: 250px;
 }

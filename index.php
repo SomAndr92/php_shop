@@ -17,14 +17,17 @@ if ($_POST['auth']) {
         } else {
             $pass=md5($pass);
             $query = $db->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass' ");
-
-            $row = $query->fetch_assoc();
-            $_SESSION['auth'] = true;
-            $_SESSION['login'] = $login;
-            var_dump($row);
+            if($query->num_rows > 0){
+                $row = $query->fetch_assoc();
+                $_SESSION['auth'] = true;
+                $_SESSION['login'] = $login;
+                $_SESSION['role'] = $row['role'];
+                header('Location: /tovar.php');
+            } else{
+                echo 'неверные данные';
+            }
         }
     }
-
 }
 
 
