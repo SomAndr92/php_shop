@@ -1,7 +1,6 @@
 <?
 session_start();
 
-
 if ($_POST['auth']) {
 
     $login = $_POST['login'];
@@ -38,27 +37,29 @@ if ($_POST['exit']) {
 ?>
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Стартовая страница</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" 
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body style="background-color:#c7c7c7;">
 <nav class="navbar bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand"></a>
+  <div class="container">
+    <a class="navbar-brand">ЛОГО</a>
    <? if(!empty($_SESSION['login'])){?>
    
     <form method="post" class="d-flex" role="search">
-      <div class="me-2 gy-1"><?  echo $_SESSION['login'];
+      <div class="me-2 gy-1">
+      <i class="fa-solid fa-user fa-lg" style="color: #404a40;"></i>
+        <?  echo $_SESSION['login'];
       ?></div>
       <input class="btn btn-outline-warning" type="submit" name="exit" value="Выход">
     </form><?
@@ -77,15 +78,10 @@ if ($_POST['exit']) {
         <input type="submit" class="col-md-auto btn btn-outline-primary" value="Регистрация" name="reg">
     </form>
 
-    
-
-    <?if($_SESSION['auth'] == true){?>
-    <a href="desroy.php">Выход</a>
-    <?}?>
     </div>
     </div>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </body>
 
 </html>

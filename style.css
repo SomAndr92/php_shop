@@ -6,15 +6,14 @@ body{
     background: green;
 }
 
-.box{
+.aaaaa{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+
     
 }
 
-.tovar{
-    max-width: 250px;
-}
+
 
 .fff{ 
     text-align: center 
