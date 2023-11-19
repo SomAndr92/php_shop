@@ -1,6 +1,6 @@
 <?
 session_start();
-
+include 'dbconnect.php';
 if ($_POST['auth']) {
 
     $new_login = $_POST['n_login'];
@@ -9,10 +9,7 @@ if ($_POST['auth']) {
     $new_name = $_POST['n_name'];
 
     if (!empty($new_login) and !empty($new_pass) and !empty($new_email) and !empty($new_name)) {
-        $db = @new mysqli('localhost', 'root', '', 'shop');
-        if ($db->connection_errno) {
-            echo "error: " . $db->connection_errno;
-        } else {
+        $db = dbconn();
             $new_pass=md5($new_pass);
             $query = $db->query("INSERT INTO `users`(`login`, `pass`, `email`, `name`) 
             VALUES ('$new_login', '$new_pass', '$new_email', '$new_name')");  
@@ -25,7 +22,7 @@ if ($_POST['auth']) {
             }      
         }
     }
-}
+
 if ($_POST['exit']) {
     if($_SESSION['auth'] == true){    
     header('Location: /desroy.php');
@@ -46,7 +43,7 @@ if ($_POST['exit']) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
-<body style="background-color:#c7c7c7;">
+<body >
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">ЛОГО</a>

@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 12 2023 г., 19:28
--- Версия сервера: 10.4.26-MariaDB
+-- Время создания: Ноя 14 2023 г., 21:10
+-- Версия сервера: 10.8.4-MariaDB
 -- Версия PHP: 7.2.34
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -140,7 +140,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `товары`
 --
 ALTER TABLE `товары`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

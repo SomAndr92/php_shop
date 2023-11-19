@@ -1,6 +1,6 @@
 body{
-    background-color:rgba(52, 50, 50, 1) ;
-    
+    background-color:#c7c7c7 ;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     }
 .ok{
     background: green;
@@ -8,9 +8,7 @@ body{
 
 .aaaaa{
     display: flex;
-    flex-wrap: wrap;
-
-    
+    flex-wrap: wrap; 
 }
 
 
@@ -20,6 +18,65 @@ body{
 }
 
 .jpgr{
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.box1{
+    width: 48%;
+    min-width: 370px;
+}
+
+.afisha{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    row-gap: 25px;
+}
+@media(max-width: 990px){
+    .afisha{
+
+        justify-content: center;
+        
+    } 
+} 
+
+.jpg_big{
+    width: 100%;  
+    border-radius: 5%;
+}
+
+.small_box{
+    font-size: 20px;
+    font-weight: bold; 
+    margin-top:10px;
+}
+
+.name{
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 30px;
+font-weight: bold;
+}
+@media(max-width: 990px){
+    .name{
+
+        text-align: center;
+        
+    } 
+} 
+.name_small{
+    font-size: 20px;
+    font-weight: bold; 
+}
+
+.box2{
+    background-color:#ffffff ;
+    border-radius: 10px;
+
+}
+
+.box-btn{
     width: 180px;
     height: 180px;
 }

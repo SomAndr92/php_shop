@@ -1,5 +1,6 @@
 <?
 session_start();
+include 'dbconnect.php';
 if ($_POST['exit']) {
     if($_SESSION['auth'] == true){    
     header('Location: /desroy.php');
@@ -17,7 +18,7 @@ if ($_POST['exit']) {
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="background-color:#c7c7c7;">
+<body>
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">ЛОГО</a>
@@ -65,10 +66,7 @@ $characteristics = $_POST['characteristics'];
 $description = $_POST['description'];
 
 if (!empty($name) and !empty($price) and !empty($characteristics) and !empty($description)) {
-    $db = @new mysqli('localhost', 'root', '', 'shop');
-    if ($db->connection_errno) {
-        echo "error: " . $db->connection_errno;
-    } else {
+    $db = dbconn();
         $uploaddir = 'files/';
     $uploadfile = $uploaddir . basename($_FILES['photo']['name']);
     if (move_uploaded_file($_FILES['photo']['tmp_name'], $uploadfile)) {
@@ -77,7 +75,7 @@ if (!empty($name) and !empty($price) and !empty($characteristics) and !empty($de
           echo "ne ok";
       }
         $query = $db->query("INSERT INTO `товары`(`Наименование`, `Цена`, `Характеристики`, `Описание`, `Фото`) 
-        VALUES ('$name','$price','$characteristics','$description','$uploaddir')");  
+        VALUES ('$name','$price','$characteristics','$description','$uploadfile')");  
         //проверка на не совпадение товаров
         if($query) 
         {
@@ -87,7 +85,7 @@ if (!empty($name) and !empty($price) and !empty($characteristics) and !empty($de
         }      
     }
 }
-}
+
 
 ?>
 </div>

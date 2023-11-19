@@ -1,5 +1,7 @@
 <?
 session_start();
+ 
+include 'dbconnect.php';
 
 if ($_POST['exit']) {
         if($_SESSION['auth'] == true){    
@@ -20,7 +22,7 @@ if ($_POST['exit']) {
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
 </head>
-<body style="background-color:#c7c7c7;">
+<body>
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">ЛОГО</a>
@@ -41,18 +43,16 @@ if ($_POST['exit']) {
 <div class="container"> 
 <div class="row">
 
+
 <?php
 
-        $db = @new mysqli('localhost', 'root', '', 'shop');
-        if ($db->connection_errno) {
-            echo "error: " . $db->connection_errno;
-        } else {
+        $db = dbconn();
             
             $query = $db->query("SELECT * FROM `товары`");
             while($row=$query->fetch_assoc())
             {
             ?>
-            <div class="col-md-3 gy-2">
+            <div class="col gy-2">
             <img src="<?=$row['фото']?>" alt="" class="jpgr">
             <br>
                 <?=$row['Наименование']?>
@@ -62,9 +62,9 @@ if ($_POST['exit']) {
             <?
             }
             if($_SESSION['role'] == 'admin'){?>
-                <a href ="new_prod.php?id=<?=$row['id']?>" class="btn btn-outline-success col-md-2 ">Добавить новый товар</a> <?
+                <a href ="new_prod.php?id=<?=$row['id']?>" class="btn btn-outline-success box-btn gy-2">Добавить новый товар <br>  <i class="fa-regular fa-square-plus fa-2xl mt-4"></i></a> <?
              }
-        }
+        
 ?>
 </div>
 </div>

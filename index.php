@@ -1,16 +1,15 @@
 <?
 session_start();
 
+include 'dbconnect.php';
+
 if ($_POST['auth']) {
 
     $login = $_POST['login'];
     $pass = $_POST['pass'];
 
     if (!empty($login) and !empty($pass)) {
-        $db = @new mysqli('localhost', 'root', '', 'shop');
-        if ($db->connection_errno) {
-            echo "error: " . $db->connection_errno;
-        } else {
+        $db = dbconn();
             $pass=md5($pass);
             $query = $db->query("SELECT * FROM `users` WHERE `login` = '$login' AND `pass` = '$pass' ");
             if($query->num_rows > 0){
@@ -24,7 +23,7 @@ if ($_POST['auth']) {
             }
         }
     }
-}
+
 if ($_POST['reg']) {
     header('Location: /reg.php');
 }
@@ -50,7 +49,7 @@ if ($_POST['exit']) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body style="background-color:#c7c7c7;">
+<body >
 <nav class="navbar bg-body-tertiary">
   <div class="container">
     <a class="navbar-brand">ЛОГО</a>
